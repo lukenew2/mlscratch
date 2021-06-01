@@ -1,5 +1,4 @@
 """Module containing tests for mlscratch/utils/preprocessing.py."""
-
 import numpy as np
 from numpy.testing import assert_array_almost_equal
 import pytest
@@ -58,14 +57,4 @@ def test_polynomial_features_degree_1():
 
     assert_array_almost_equal(poly_features, X)
 
-def test_polynomial_features_one_feature():
-    """With one feature function should features [X, X^2, X^3]."""
-    X = 6 * np.random.rand(100, 1) - 3
 
-    X_result = np.c_[X, X ** 2, X ** 3]
-
-    poly = PolynomialFeatures(3)
-
-    poly_features = poly.fit_transform(X)
-
-    assert_array_almost_equal(poly_features, X_result)
