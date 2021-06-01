@@ -12,6 +12,8 @@ data science work.
 ## Installation
 Create a virtual environment and run the following commands in your terminal.
 
-$ git clone https://github.com/lukenew2/mlscratch
-$ cd mlscratch
-$ python setup.py install
+```
+    $ git clone https://github.com/lukenew2/mlscratch
+    $ cd mlscratch
+    $ python setup.py install
+```
