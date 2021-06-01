@@ -32,3 +32,35 @@ def mean_squared_error(y_true, y_pred, squared=True):
     # Return average error across all instances.
     return np.average(errors)
 
+def r2_score(y_true, y_pred):
+    """
+    R^2 regression score function.
+
+        R^2 = 1 - SS_res / SS_tot
+
+    where SS_res is the residual sum of squares and SS_tot is the total
+    sum of squares.
+
+    Parameters
+    ----------
+    y_true : array-like of shape (n_samples, )
+        Ground truth (correct) target values.
+    y_pred : array-like of shape (n_samples, ).
+        Estimated target values.
+
+    Returns
+    -------
+    score : float
+        R^2 score.
+    """
+    # Residual sum of squares.
+    numerator = ((y_true - y_pred) ** 2).sum(axis=0)
+    # Total sum of squares.
+    denominator = ((y_true - np.average(y_true, axis=0)) ** 2).sum(axis=0)
+    # R^2.
+    score = 1 - numerator / denominator
+
+    return score 
+
+
+

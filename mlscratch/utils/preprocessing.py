@@ -122,12 +122,14 @@ class PolynomialFeatures:
         X : array-like of shape (n_samples, n_features)
             Feature matrix to be transformed into polynomial feature matrix.
         """
+        # Make sure input is numpy array.
         X = np.array(X)
+        # Store number of input features in attribute.
         self.n_input_features = X.shape[1]
-
+        # Calculate numerator and denominator of equation listed above.
         numerator = factorial(self.n_input_features + self.degree)
         denominator = factorial(self.degree) * factorial(self.n_input_features)
-
+        # Calculate number of output features minus 1 to subtract bias term.
         self.n_output_features = int(numerator / denominator) - 1
 
 
@@ -146,12 +148,14 @@ class PolynomialFeatures:
             Tranformed polynomial feature matrix where n_output_features is
             the number of output features after polynomial transformation.
         """
+        # Generate all combination of feature indices.
         combos = [combinations_with_replacement(range(self.n_input_features),i)
                   for i in range(1, self.degree + 1)]
+        # Create list of tuples containing feature index combinations.
         combinations = [item for sublist in combos for item in sublist]
-
+        # Create new array of the desired output shape.
         X_new = np.empty((X.shape[0], self.n_output_features))
-
+        # Multiply features for each combination tuple in combinations.
         for i, index_combos in enumerate(combinations):
             X_new[:, i] = np.prod(X[:, index_combos], axis=1)
 
@@ -173,25 +177,10 @@ class PolynomialFeatures:
             Transformed polynomial feature matrix where n_output_features is 
             the number of output features after polynomial transformation.
         """
-        X = np.array(X)
-        self.n_input_features = X.shape[1]
+        self.fit(X)
 
-        numerator = factorial(self.n_input_features + self.degree)
-        denominator = factorial(self.degree) * factorial(self.n_input_features)
+        return self.transform(X)
 
-        # Subtract 1 to get rid of the intercept term.
-        self.n_output_features = int(numerator / denominator) - 1
-
-        combos = [combinations_with_replacement(range(self.n_input_features), i)
-                  for i in range(1, self.degree + 1)]
-        combinations = [item for sublist in combos for item in sublist]
-
-        X_new = np.empty((X.shape[0], self.n_output_features))
-
-        for i, index_combos in enumerate(combinations):
-            X_new[:, i] = np.prod(X[:, index_combos], axis=1)
-
-        return X_new
 
 
 
