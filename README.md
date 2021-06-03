@@ -12,7 +12,7 @@ in actual data science work.
 
 ## Installation
 To use the classes and functions for testing purposes create a virtual
-environment and simply pip install the project.  
+environment and pip install the project.  
 ```
     $ pip install mlscratch==0.0.1
 ```
@@ -24,3 +24,11 @@ environment and run the following commands in your terminal.
     $ cd mlscratch
     $ python setup.py install
 ```
+
+## Machine Learning
+- [Elastic Net](mlscratch/supervised/regression.py)
+- [Lasso Regression](mlscratch/supervised/regression.py)
+- [Linear Regression](mlscratch/supervised/regression.py)
+- [Ridge Regression](mlscratch/supervised/regression.py)
+
+
