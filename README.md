@@ -29,6 +29,7 @@ environment and run the following commands in your terminal.
 - [Elastic Net](mlscratch/supervised/regression.py)
 - [Lasso Regression](mlscratch/supervised/regression.py)
 - [Linear Regression](mlscratch/supervised/regression.py)
+- [Polynomial Regression](mlscratch/utils/preprocessing.py)
 - [Ridge Regression](mlscratch/supervised/regression.py)
 
 
