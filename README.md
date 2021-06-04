@@ -32,4 +32,6 @@ environment and run the following commands in your terminal.
 - [Polynomial Regression](mlscratch/utils/preprocessing.py)
 - [Ridge Regression](mlscratch/supervised/regression.py)
 
+## Write-Ups
+- [ML From Scratch: Linear, Polynomial, and Regularized Regression Models](https://towardsdatascience.com/ml-from-scratch-linear-polynomial-and-regularized-regression-models-725672336076)
 
