@@ -53,7 +53,7 @@ def test_polynomial_regression():
 
     # Test LinearRegression.
     for solver in ['bgd', 'lstsq']:
-        reg = LinearRegression(n_iter = 3000, solver=solver)
+        reg = LinearRegression(n_iter=3000, solver=solver)
         reg.fit(poly_features_scaled, y)
 
         assert reg.coef_.shape == (poly_features_scaled.shape[1] + 1, 1)
@@ -64,21 +64,24 @@ def test_polynomial_regression():
     ridge.fit(poly_features_scaled, y)
 
     assert ridge.coef_.shape == (poly_features_scaled.shape[1] + 1, 1)
-    assert_array_almost_equal(ridge.predict(poly_features_scaled), y)
+    assert_array_almost_equal(ridge.predict(poly_features_scaled), y,
+                              decimal=3)
 
     # Test Lasso.
     lasso = Lasso(alpha=0.)
     lasso.fit(poly_features_scaled, y)
 
     assert lasso.coef_.shape == (poly_features_scaled.shape[1] + 1, 1)
-    assert_array_almost_equal(lasso.predict(poly_features_scaled), y)
+    assert_array_almost_equal(lasso.predict(poly_features_scaled), y,
+                              decimal=3)
 
     # Test ElasticNet.
-    enreg = ElasticNet(alpha=0.)
-    enreg.fit(poly_features_scaled, y)
+    reg = ElasticNet(alpha=0.)
+    reg.fit(poly_features_scaled, y)
 
-    assert enreg.coef_.shape == (poly_features_scaled.shape[1] + 1, 1)
-    assert_array_almost_equal(enreg.predict(poly_features_scaled), y)
+    assert reg.coef_.shape == (poly_features_scaled.shape[1] + 1, 1)
+    assert_array_almost_equal(reg.predict(poly_features_scaled), y, 
+                              decimal=3)
 
 def test_ridge_regression():
     """Test Ridge using score."""
@@ -113,7 +116,7 @@ def test_lasso_regression():
     y = [[-1], [0], [1]]
     T = [[2], [3], [4]]
 
-    lasso = Lasso(alpha=1e-8)
+    lasso = Lasso(n_iter=3000, alpha=1e-8)
     lasso.fit(X, y)
     pred = lasso.predict(T)
 

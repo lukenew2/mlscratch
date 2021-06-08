@@ -57,6 +57,25 @@ class StandardScaler:
 
         return X_std
 
+    def fit_transform(self, X):
+        """
+        Calculate and store the mean and variance of each feature and 
+        standardize the data.
+
+        Parameters 
+        ----------
+        X : array-like of shape (n_samples, n_features)
+            Data to be standardized
+
+        Returns 
+        -------
+        X_std : array-like of shape(n_samples, n_featuers)
+            Standardized data.
+        """
+        self.fit(X)
+
+        return self.transform(X)
+
     def inverse_transform(self, X_std):
         """
         Transform data back into orginal state by multiplying by standard

@@ -1,11 +1,17 @@
 """Module containing tests for mlscratch/utils/metrics.py"""
 import numpy as np
-from numpy.core.fromnumeric import mean
 from numpy.testing import assert_almost_equal
 import pytest 
 
+from mlscratch.utils.metrics import accuracy_score
 from mlscratch.utils.metrics import mean_squared_error 
 from mlscratch.utils.metrics import r2_score
+
+def test_accuracy_score():
+    y_preds = [0, 2, 1, 3]
+    y_true = [0, 1, 2, 3]
+
+    assert_almost_equal(accuracy_score(y_true, y_preds), 0.5)
 
 def test_mean_squared_error(n_samples=50):
     y_true = np.arange(n_samples)

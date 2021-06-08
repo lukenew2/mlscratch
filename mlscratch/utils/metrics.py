@@ -1,15 +1,40 @@
 """Module containing functions to compute common machine learning metrics."""
 import numpy as np 
 
+def accuracy_score(y_true, y_pred):
+    """
+    Classification performance metric that computes the accuracy of y_true
+    and y_pred.
+
+    Parameters
+    ----------
+    y_true : array-like of shape (n_samples,)
+        Ground truth correct labels.
+    y_pred : array-like of shape (n_samples,)
+        Estimated target values.
+
+    Returns
+    -------
+    C : float
+        Accuracy score.
+    """
+    correct = 0
+    for true, pred in zip(y_true, y_pred):
+        if true == pred:
+            correct += 1
+    accuracy = correct / len(y_true)
+
+    return accuracy 
+
 def mean_squared_error(y_true, y_pred, squared=True):
     """
     Mean squared error regression loss function.
 
     Parameters 
     ----------
-    y : array-like of shape (n_samples,)
+    y_true : array-like of shape (n_samples, )
         Ground truth (correct) target values.
-    y_pred : array-like of shape (n_samples,)
+    y_pred : array-like of shape (n_samples, )
         Estimated target values.
     squared : bool, default=True
         If True returns MSE, if False returns RMSE.
