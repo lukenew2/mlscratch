@@ -25,7 +25,8 @@ environment and run the following commands in your terminal.
     $ python setup.py install
 ```
 
-## Machine Learning
+## Learning Algorithms
+### Supervised
 - [Elastic Net](mlscratch/supervised/regression.py)
 - [Lasso Regression](mlscratch/supervised/regression.py)
 - [Linear Regression](mlscratch/supervised/regression.py)
