@@ -112,4 +112,23 @@ class LogisticRegression():
 
 class SoftmaxRegression():
     """
+    Class representing a softmax regression model.
+
+    Capable of performing multiclass classfication.
+
+    Parameters
+    ----------
+    n_iter : float, default=3000
+        Maximum number of iterations to be used by batch gradient descent.
+    lr : float, default=1e-1
+        Learning rate determining the size of steps in batch gradient descent.
+
+    Attributes 
+    ----------
+    coef_ : array of shape (n_features,)
+        Estimated coefficients of each feature and intercept.  
     """
+    def __init__(self, n_iter=3000, lr=1e-1):
+        self.n_iter = n_iter
+        self.lr = lr
+        

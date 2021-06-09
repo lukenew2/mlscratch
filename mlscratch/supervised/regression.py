@@ -169,7 +169,7 @@ class LinearRegression(Regression):
         ----------
         X : array-like of shape (n_samples, n_features)
             Training data. Independent variables.
-        y : array-like of shape (n_samples, 1)
+        y : array-like of shape (n_samples,)
             Target values. Dependent variable.
 
         Returns
