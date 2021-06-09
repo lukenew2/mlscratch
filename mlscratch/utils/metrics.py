@@ -32,9 +32,9 @@ def mean_squared_error(y_true, y_pred, squared=True):
 
     Parameters 
     ----------
-    y_true : array-like of shape (n_samples, )
+    y_true : array-like of shape (n_samples,)
         Ground truth (correct) target values.
-    y_pred : array-like of shape (n_samples, )
+    y_pred : array-like of shape (n_samples,)
         Estimated target values.
     squared : bool, default=True
         If True returns MSE, if False returns RMSE.
@@ -68,9 +68,9 @@ def r2_score(y_true, y_pred):
 
     Parameters
     ----------
-    y_true : array-like of shape (n_samples, )
+    y_true : array-like of shape (n_samples,)
         Ground truth (correct) target values.
-    y_pred : array-like of shape (n_samples, ).
+    y_pred : array-like of shape (n_samples,)
         Estimated target values.
 
     Returns

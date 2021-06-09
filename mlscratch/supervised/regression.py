@@ -24,7 +24,7 @@ class Regression():
 
     Attributes 
     ----------
-    coef_ : array of shape (n_features, 1)
+    coef_ : array of shape (n_features,)
         Estimated coefficients for the regression problem.
     """
     def __init__(self, n_iter=1000, lr=1e-1):
@@ -46,16 +46,14 @@ class Regression():
         -------
         self : returns an instance of self.
         """
-        # Make sure inputs are numpy arrays.
-        X = np.array(X)
-        y = np.array(y)
-        # Add x_0 = 1 to each instance for the bias term.
-        X = np.c_[np.ones((X.shape[0], 1)), X]
+        # Insert X_0 = 1 for the bias term.
+        X = np.insert(X, 0, 1, axis=1)
         # Store number of samples and features in variables.
         n_samples, n_features = np.shape(X)
         self.training_errors = []
-        # Initialize weights randomly from normal distribution.
-        self.coef_ = np.random.randn(n_features, 1)
+        # Randomly intialize weights using glorot uniform intializer.
+        limit = np.sqrt(2 / n_features)
+        self.coef_ = np.random.uniform(-limit, limit, (n_features,))
         # Batch gradient descent for number iterations = n_iter.
         for _ in range(self.n_iter):
             y_preds = X.dot(self.coef_)
@@ -85,13 +83,11 @@ class Regression():
 
         Returns
         -------
-        C : array of shape (n_samples, 1)
+        C : array of shape (n_samples,)
             Estimated targets per instance.
         """
-        # Make sure inputs are numpy arrays.
-        X = np.array(X)
-        # Add x_0 = 1 to each instance for the bias term.
-        X = np.c_[np.ones((X.shape[0], 1)), X]
+        # Insert X_0 = 1 for the bias term.
+        X = np.insert(X, 0, 1, axis=1)
 
         return X.dot(self.coef_)
 
@@ -108,7 +104,7 @@ class Regression():
         ----------
         X : array-like of shape (n_samples, n_features)
             Test samples for model to be scores against.
-        y : array-like of shape (n_samples, 1).
+        y : array-like of shape (n_samples,).
             True values for test samples.
 
         Returns
@@ -147,7 +143,7 @@ class LinearRegression(Regression):
 
     Attributes 
     ----------
-    coef_ : array of shape (n_features, 1)
+    coef_ : array of shape (n_features,)
         Estimated coefficients for the regression problem.
 
     Notes
@@ -182,11 +178,8 @@ class LinearRegression(Regression):
         """
         # If solver is 'lstsq' use ordinary least squares optimization method.
         if self.solver == 'lstsq':
-            # Make sure inputs are numpy arrays.
-            X = np.array(X)
-            y = np.array(y)
-            # Add x_0 = 1 to each instance for the bias term.
-            X = np.c_[np.ones((X.shape[0], 1)), X]
+            # Insert X_0 = 1 for the bias term.
+            X = np.insert(X, 0, 1, axis=1)
             # Scipy implementation of least squares.
             self.coef_, residues, rank, singular = lstsq(X, y)
 
@@ -219,7 +212,7 @@ class Ridge(Regression):
 
     Attributes 
     ----------
-    coef_ : array of shape (n_features, 1)
+    coef_ : array of shape (n_features,)
         Estimated coefficients for the regression problem.
 
     Notes
@@ -256,7 +249,7 @@ class Lasso(Regression):
 
     Attributes
     ----------
-    coef_ : array of shape (n_features, 1)
+    coef_ : array of shape (n_features,)
         Estimated coefficients for the regression problem.
 
     Notes
@@ -298,7 +291,7 @@ class ElasticNet(Regression):
 
     Attributes
     ----------
-    coef_ : array of shape (n_features, 1)
+    coef_ : array of shape (n_features,)
         Estimated coefficients for the regression problem.
 
     Notes

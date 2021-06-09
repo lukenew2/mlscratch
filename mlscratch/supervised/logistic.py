@@ -108,3 +108,8 @@ class LogisticRegression():
         probas = self.sigmoid(X.dot(self.coef_))
 
         return probas
+
+
+class SoftmaxRegression():
+    """
+    """
