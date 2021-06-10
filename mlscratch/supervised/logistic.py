@@ -63,7 +63,7 @@ class LogisticRegression():
             y_preds = self.sigmoid(X.dot(self.coef_))
 
             # Calculate gradients of cost function.
-            gradients = np.dot(X.T, (y_preds - y))
+            gradients = X.T.dot(y_preds - y)
 
             # Update the weights.
             self.coef_ -= self.lr * gradients 
@@ -179,7 +179,7 @@ class SoftmaxRegression():
             y_preds = self.softmax(X.dot(self.coef_))
 
             # Gradients of cost function.
-            gradients = np.dot(X.T, (y_preds - self.encoder(y)))
+            gradients = X.T.dot(y_preds - self.encoder(y))
 
             # Update the weights.
             self.coef_ -= self.lr * gradients 
