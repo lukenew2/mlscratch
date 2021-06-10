@@ -304,22 +304,3 @@ class ElasticNet(Regression):
         self.r = r 
         self.regularization = l1_l2_regularization(alpha=self.alpha, r=self.r)
         super(ElasticNet, self).__init__(n_iter=n_iter, lr=lr)
-
-    
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-

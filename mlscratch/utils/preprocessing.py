@@ -3,6 +3,25 @@ from itertools import combinations_with_replacement
 import numpy as np 
 from scipy.special import factorial
 
+def to_categorical(y):
+    """
+    One hot encodes nominal values.
+
+    Parameters
+    ----------
+    y : array like of shape (n_samples,)
+        Target array to be transformed into one hot encoded array.
+
+    Returns
+    -------
+    C : array-like of shape (n_samples, n_unique_values)
+        Transformed array.
+    """
+    # Number of unique values.
+    n_classes = len(np.unique(y))
+    encoded = np.zeros()
+
+
 class StandardScaler:
     """
     Standardize features by centering the mean to 0 and unit variance.
@@ -199,15 +218,3 @@ class PolynomialFeatures:
         self.fit(X)
 
         return self.transform(X)
-
-
-
-
-
-
-
-
-
-
-
-
