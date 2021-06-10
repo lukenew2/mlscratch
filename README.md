@@ -14,7 +14,7 @@ in actual data science work.
 To use the classes and functions for testing purposes create a virtual
 environment and pip install the project.  
 ```
-    $ pip install mlscratch==0.0.1
+    $ pip install mlscratch==0.1.0
 ```
 To download all source code in a local repository from Github create a virtual
 environment and run the following commands in your terminal.
@@ -37,4 +37,3 @@ environment and run the following commands in your terminal.
 
 ## Write-Ups
 - [ML From Scratch: Linear, Polynomial, and Regularized Regression Models](https://towardsdatascience.com/ml-from-scratch-linear-polynomial-and-regularized-regression-models-725672336076)
-

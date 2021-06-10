@@ -1,7 +1,7 @@
 from setuptools import setup, find_namespace_packages
 import pathlib
 
-__version__ = '0.0.1'
+__version__ = '0.1.0'
 
 here = pathlib.Path(__file__).parent.resolve()
 
@@ -29,7 +29,8 @@ setup(
     python_requires='>=3.7',
     install_requires=[
         'scipy',
-        'numpy'
+        'numpy',
+        'scikit-learn'
     ],  
     project_urls={  
         'Source': 'https://github.com/lukenew2/mlscratch',
