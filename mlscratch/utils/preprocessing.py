@@ -3,23 +3,45 @@ from itertools import combinations_with_replacement
 import numpy as np 
 from scipy.special import factorial
 
-def to_categorical(y):
+class OneHotEncoder:
     """
-    One hot encodes nominal values.
+    One hot encode categorical or nominal features into numeric array.  
 
-    Parameters
-    ----------
-    y : array like of shape (n_samples,)
-        Target array to be transformed into one hot encoded array.
-
-    Returns
-    -------
-    C : array-like of shape (n_samples, n_unique_values)
-        Transformed array.
+    New features are created in alphabetical or ordinal order of categories
+    found in feature array.
     """
-    # Number of unique values.
-    n_classes = len(np.unique(y))
-    encoded = np.zeros()
+    def __call__(self, X):
+        """
+        Transforms array into one hot encoded numeric array.
+
+        Parameters
+        ----------
+        X : array-like of shape (n_samples,)
+            Target column to be one hot encoded.
+
+        Returns
+        -------
+        X : array-like of shape (n_samples, n_categories)
+            One hot encoded numeric array.
+        """
+        # Store n_samples and categories in variables.
+        n_samples = np.shape(X)[0]
+        categories = np.unique(X)
+
+        # Create mappings from categories to numbers 0 to n_categories - 1.
+        mappings = {}
+        for id, category in enumerate(categories):
+            mappings[category] = id
+
+        # Create one hot encoded array of shape (n_samples, n_categories).
+        one_hot_array = np.zeros((n_samples, len(categories)))
+        for row_number, instance in enumerate(X):
+            one_hot_array[row_number, mappings[instance]] = 1
+
+        return one_hot_array
+
+  
+
 
 
 class StandardScaler:

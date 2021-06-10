@@ -1,10 +1,25 @@
 """Module containing tests for mlscratch/utils/preprocessing.py."""
 import numpy as np
+from numpy.testing import assert_array_equal
 from numpy.testing import assert_array_almost_equal
 import pytest
 
+from mlscratch.utils.preprocessing import OneHotEncoder
 from mlscratch.utils.preprocessing import PolynomialFeatures
 from mlscratch.utils.preprocessing import StandardScaler
+
+
+def test_one_hot():
+    """Simple test for One hot."""
+    X = [1, 0, 2]
+
+    encoder = OneHotEncoder()
+
+    result = [[0, 1, 0], 
+              [1, 0, 0],  
+              [0, 0, 1]]
+
+    assert_array_equal(encoder(X), result)
 
 def test_standard_scaler():
     """Simple test for standard scaler."""

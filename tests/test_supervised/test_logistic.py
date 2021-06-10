@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from mlscratch.utils.metrics import accuracy_score
 from mlscratch.utils.preprocessing import StandardScaler
 from mlscratch.supervised.logistic import LogisticRegression
+from mlscratch.supervised.logistic import SoftmaxRegression
 
 def test_logistic_simple():
     """Test logistic regression with a simple dataset."""
@@ -52,6 +53,29 @@ def test_logistic_iris():
     score = accuracy_score(y_test, y_preds)
 
     assert score > 0.80
-    
-    
 
+def test_softmax_iris():
+    """Test softmax regression on iris dataset."""
+    # Load iris dataset.
+    iris = load_iris()
+    X = iris.data
+    y = iris.target
+
+    # Split dataset into training and test sets.
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20,
+                                                        random_state=42)
+
+    # Preprocess data by standardization.
+    scaler = StandardScaler()
+    scaler.fit_transform(X_train)
+    scaler.transform(X_test)
+
+    # Train model and predict test set.
+    clf = SoftmaxRegression()
+    clf.fit(X_train, y_train)
+    y_preds = clf.predict(X_test)
+
+    # Compute accuracy of predictions.
+    score = accuracy_score(y_test, y_preds)
+
+    assert score > 0.85
