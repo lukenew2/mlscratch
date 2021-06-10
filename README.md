@@ -33,6 +33,7 @@ environment and run the following commands in your terminal.
 - [Logistic Regression](mlscratch/supervised/logistic.py)
 - [Polynomial Regression](mlscratch/utils/preprocessing.py)
 - [Ridge Regression](mlscratch/supervised/regression.py)
+- [Softmax Regression](mlscratch/supervised/logistic.py)
 
 ## Write-Ups
 - [ML From Scratch: Linear, Polynomial, and Regularized Regression Models](https://towardsdatascience.com/ml-from-scratch-linear-polynomial-and-regularized-regression-models-725672336076)

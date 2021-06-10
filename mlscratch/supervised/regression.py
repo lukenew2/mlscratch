@@ -48,25 +48,33 @@ class Regression():
         """
         # Insert X_0 = 1 for the bias term.
         X = np.insert(X, 0, 1, axis=1)
+
         # Store number of samples and features in variables.
         n_samples, n_features = np.shape(X)
         self.training_errors = []
+
         # Randomly intialize weights using glorot uniform intializer.
         limit = np.sqrt(2 / n_features)
         self.coef_ = np.random.uniform(-limit, limit, (n_features,))
+
         # Batch gradient descent for number iterations = n_iter.
         for _ in range(self.n_iter):
             y_preds = X.dot(self.coef_)
+
             # Penalty term if regularized (don't include bias term).
             regularization = self.regularization(self.coef_[1:])
+
             # Calculate mse + penalty term if regularized.
             cost_function = mean_squared_error(y, y_preds) + regularization
             self.training_errors.append(cost_function) 
+
             # Regularization term of gradients (don't include bias term).
             gradient_reg = self.regularization.grad(self.coef_[1:])
+
             # Gradients of loss function.
             gradients = (2/n_samples) * X.T.dot(y_preds - y)
             gradients = gradients + gradient_reg
+
             # Update the weights.
             self.coef_ -= self.lr * gradients 
 
@@ -153,6 +161,7 @@ class LinearRegression(Regression):
     """
     def __init__(self, n_iter=1000, lr=1e-1, solver='bgd'):
         self.solver = solver 
+
         # No regularization.
         self.regularization = lambda x: 0
         self.regularization.grad = lambda x: 0
@@ -178,8 +187,10 @@ class LinearRegression(Regression):
         """
         # If solver is 'lstsq' use ordinary least squares optimization method.
         if self.solver == 'lstsq':
+
             # Insert X_0 = 1 for the bias term.
             X = np.insert(X, 0, 1, axis=1)
+            
             # Scipy implementation of least squares.
             self.coef_, residues, rank, singular = lstsq(X, y)
 
