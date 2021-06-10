@@ -22,8 +22,10 @@ def test_mean_squared_error(n_samples=50):
 def test_mean_squared_error_squared():
     # Calculate MSE.
     mse1 = mean_squared_error([[1]], [[10]], squared=True)
+    
     # Calculate RMSE.
     mse2 = mean_squared_error([[1]], [[10]], squared=False)
+
     # Assert sqrt(MSE) = RMSE
     assert np.sqrt(mse1) == pytest.approx(mse2)
 
@@ -35,5 +37,3 @@ def test_r2_score():
     score = r2_score(y_true, y_pred)
 
     assert_almost_equal(score, 0.9486081370)
-
- 

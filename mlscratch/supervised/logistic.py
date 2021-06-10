@@ -230,6 +230,3 @@ class SoftmaxRegression():
         probas = self.softmax(X.dot(self.coef_))
 
         return probas
-
-
-

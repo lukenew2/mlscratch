@@ -151,8 +151,3 @@ def test_lasso_regression_score():
     lasso.fit(X, y)
 
     assert lasso.score(X, y) > 0.65
-
-
-    
-
-

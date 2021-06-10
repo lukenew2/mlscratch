@@ -40,6 +40,7 @@ class l1_regularization():
         where w is the vector of feature weights.
         """
         subgradient = self.alpha * np.sign(w)
+        
         # Insert 0 for bias term.
         return np.insert(subgradient, 0, 0, axis=0)
 
@@ -82,6 +83,7 @@ class l2_regularization():
         w is the vector of feature weights.  
         """
         gradient_penalty = np.asarray(self.alpha) * w
+
         # Insert 0 for bias term.
         return np.insert(gradient_penalty, 0, 0, axis=0)
 
@@ -136,5 +138,6 @@ class l1_l2_regularization():
         l2_grad = np.asarray(1 - self.r) * w 
 
         gradient_penalty = self.alpha * (l1_grad + l2_grad)
+
         # Insert 0 for bias term.
         return np.insert(gradient_penalty, 0, 0, axis=0)

@@ -71,5 +71,3 @@ def test_polynomial_features_degree_1():
     poly_features = poly.transform(X)
 
     assert_array_almost_equal(poly_features, X)
-
-

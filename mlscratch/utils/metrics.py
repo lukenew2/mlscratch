@@ -47,6 +47,7 @@ def mean_squared_error(y_true, y_pred, squared=True):
     # Make sure inputs are numpy arrays.
     y_true = np.array(y_true)
     y_pred = np.array(y_pred)
+    
     # Calculate array of errors for each instance.
     errors = np.average((y_true - y_pred) ** 2, axis=0)
 
@@ -80,12 +81,11 @@ def r2_score(y_true, y_pred):
     """
     # Residual sum of squares.
     numerator = ((y_true - y_pred) ** 2).sum(axis=0)
+
     # Total sum of squares.
     denominator = ((y_true - np.average(y_true, axis=0)) ** 2).sum(axis=0)
+
     # R^2.
     score = 1 - numerator / denominator
 
     return score 
-
-
-

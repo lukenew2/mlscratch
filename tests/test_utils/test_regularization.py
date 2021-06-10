@@ -35,7 +35,6 @@ def test_l1_l2_regularization():
     assert_almost_equal(regularization.grad(w[1:]), [[0.], [0.5], [0.5]])
 
     # Test equivalence to l1 regularization when r = 1
-
     w = [[2], [1], [2]]
 
     regularization = l1_l2_regularization(alpha=0.5, r=1)
@@ -44,7 +43,6 @@ def test_l1_l2_regularization():
     assert_almost_equal(regularization.grad(w[1:]), [[0.], [0.5], [0.5]])
 
     # Test Elastic Net for correct output when r = 0.5
-
     w = [[0], [1]]
 
     regularization = l1_l2_regularization(alpha=0.5, r=0.5)
