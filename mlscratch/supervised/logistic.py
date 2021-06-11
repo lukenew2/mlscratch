@@ -1,9 +1,9 @@
 """Module containing classes for logistic and softmax regression."""
-from mlscratch.utils.preprocessing import OneHotEncoder
 import numpy as np
 
 from mlscratch.utils.activations import Sigmoid
 from mlscratch.utils.activations import Softmax
+from mlscratch.utils.preprocessing import OneHotEncoder
 
 class LogisticRegression():
     """
