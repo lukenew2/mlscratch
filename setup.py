@@ -16,7 +16,7 @@ setup(
     long_description_content_type='text/markdown',  
     url='https://github.com/lukenew2/mlscratch', 
     author='Luke Newman', 
-    author_email='lukeanewman2@gmail.com',  
+    author_email='lukenewa@gmail.com',  
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Education',

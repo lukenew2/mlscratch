@@ -86,7 +86,7 @@ class LogisticRegression():
 
         Returns
         -------
-        C: array of shape(n_samples,)
+        C: array of shape (n_samples,)
             Estimated classes.
         """
         # Insert X_0 = 1 for the bias term.
