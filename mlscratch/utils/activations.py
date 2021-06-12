@@ -5,7 +5,7 @@ class Sigmoid():
     """
     Sigmoid activation function used in linear classification models.
 
-        sigmoid(x) = 1 / (1 - exp(x))
+        sigmoid(x) = 1 / (1 + exp(-x))
 
     where x is an array of scalar values.
     """
