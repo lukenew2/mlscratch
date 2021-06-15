@@ -37,3 +37,4 @@ environment and run the following commands in your terminal.
 
 ## Write-Ups
 - [ML From Scratch: Linear, Polynomial, and Regularized Regression Models](https://towardsdatascience.com/ml-from-scratch-linear-polynomial-and-regularized-regression-models-725672336076)
+- [ML From Scratch: Logistic and Softmax Regression](https://towardsdatascience.com/ml-from-scratch-logistic-and-softmax-regression-9f09f49a852c)
