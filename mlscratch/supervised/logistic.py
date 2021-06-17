@@ -206,7 +206,7 @@ class SoftmaxRegression():
         # Estimated probabilities of instances belonging to each class.
         probas = self.softmax(X.dot(self.coef_))
 
-        # Return class of highest probability
+        # Return class of highest probability.
         return np.argmax(probas, axis=1)
 
     def predict_proba(self, X):
